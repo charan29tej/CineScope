@@ -1,16 +1,16 @@
-# 🎬 CineScope — Movie & TV Show Explorer
+# CineScope — Movie & TV Show Explorer
 
 A modern, responsive web application for discovering and exploring movies and TV shows using the [TMDB (The Movie Database) API](https://www.themoviedb.org/documentation/api).
 
 ---
 
-## 📌 Project Purpose
+## Project Purpose
 
 CineScope allows users to browse trending movies and TV shows, search for titles, filter by genre or rating, and save their favorites — all within a clean, dark-mode-friendly interface built with Tailwind CSS.
 
 ---
 
-## 🌐 API Used
+## API Used
 
 **TMDB API** — [https://www.themoviedb.org/documentation/api](https://www.themoviedb.org/documentation/api)
 
@@ -28,7 +28,7 @@ CineScope allows users to browse trending movies and TV shows, search for titles
 
 ---
 
-## ✨ Planned Features
+## Planned Features
 
 ### Core Features
 - 🔍 **Search** — Search movies and TV shows by title using a live search bar (with debouncing)
@@ -38,14 +38,14 @@ CineScope allows users to browse trending movies and TV shows, search for titles
 - 🌙 **Dark / Light Mode** — Toggle between themes; preference saved in Local Storage
 
 ### Bonus Features (Planned)
-- ⏱️ Debouncing on the search input to reduce unnecessary API calls
-- 📄 Pagination for browsing large result sets
-- 🔄 Loading indicators while data is being fetched
-- 💾 Local Storage for saving favorites and theme preference
+- Debouncing on the search input to reduce unnecessary API calls
+- Pagination for browsing large result sets
+- Loading indicators while data is being fetched
+- Local Storage for saving favorites and theme preference
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 | Technology | Purpose |
 |---|---|
@@ -59,7 +59,7 @@ CineScope allows users to browse trending movies and TV shows, search for titles
 
 ---
 
-## 📁 Project Structure (Planned)
+## Project Structure (Planned)
 
 ```
 cinescope/
@@ -75,7 +75,7 @@ cinescope/
 
 ---
 
-## 🚀 Setup & Running the Project
+## Setup & Running the Project
 
 1. **Clone the repository**
    ```bash
@@ -95,11 +95,11 @@ cinescope/
    - Open `index.html` directly in a browser, **or**
    - Use the Live Server extension in VS Code for a better dev experience
 
-> ⚠️ No build tools or npm install required — this is a plain HTML/CSS/JS project.
+> No build tools or npm install required — this is a plain HTML/CSS/JS project.
 
 ---
 
-## 📅 Milestones
+## Milestones
 
 | Milestone | Description | Deadline |
 |---|---|---|
@@ -112,7 +112,7 @@ cinescope/
 
 ## 👨‍💻 Author
 
-- **GitHub:** charan29tej(https://github.com/your-username)
+- **GitHub:** charan29tej(https://github.com/charan29tej)
 
 ---
 
