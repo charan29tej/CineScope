@@ -112,7 +112,7 @@ cinescope/
 
 ## 👨‍💻 Author
 
-- **GitHub:** charan29tej(https://github.com/charan29tej)
+- **GitHub:** [charan29tej](https://github.com/charan29tej)
 
 ---
 
