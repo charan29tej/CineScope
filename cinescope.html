@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineScope — Discover Movies & TV Shows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cinescope.css" />
+</head>
+<body id="body-root">
+
+
+  <nav class="cinescope-nav">
+    <div class="nav-inner">
+      <h1 class="nav-logo">CINESCOPE</h1>
+      <div class="nav-right">
+
+        <div class="tab-toggle">
+          <button id="tab-movies" onclick="switchTab('movies')" class="tab-btn tab-active">Movies</button>
+          <button id="tab-tv" onclick="switchTab('tv')" class="tab-btn">TV Shows</button>
+        </div>
+
+        <button id="theme-toggle" onclick="toggleTheme()" class="theme-btn">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="cinescope-hero">
+    <p class="hero-tag">Trending This Week</p>
+    <h2 class="hero-title">What to Watch</h2>
+    <p class="hero-sub">Explore the hottest movies and TV shows trending right now.</p>
+  </header>
+
+
+  <main class="cinescope-main">
+
+
+    <div id="loading" class="loading-box">
+      <div class="spinner"></div>
+      <p class="loading-text">Fetching content...</p>
+    </div>
+
+
+    <div id="error" class="error-box hidden">
+      <p class="error-icon">😕</p>
+      <p class="error-msg">Something went wrong. Please try again.</p>
+      <button onclick="loadContent()" class="retry-btn">Retry</button>
+    </div>
+
+
+    <div id="cards-grid" class="cards-grid hidden"></div>
+
+
+    <div class="load-more-wrapper">
+      <button id="load-more-btn" onclick="loadMore()" class="load-more-btn hidden">Load More</button>
+    </div>
+
+  </main>
+
+
+  <footer class="cinescope-footer">
+    Built with passion by <span class="footer-name">charan29tej</span> · Powered by TMDB API
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="cinescope_app.js"></script>
+</body>
+</html>
