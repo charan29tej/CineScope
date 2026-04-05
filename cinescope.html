@@ -15,12 +15,10 @@
     <div class="nav-inner">
       <h1 class="nav-logo">CINESCOPE</h1>
       <div class="nav-right">
-
         <div class="tab-toggle">
           <button id="tab-movies" onclick="switchTab('movies')" class="tab-btn tab-active">Movies</button>
           <button id="tab-tv" onclick="switchTab('tv')" class="tab-btn">TV Shows</button>
         </div>
-
         <button id="theme-toggle" onclick="toggleTheme()" class="theme-btn">🌙</button>
       </div>
     </div>
@@ -32,6 +30,42 @@
     <h2 class="hero-title">What to Watch</h2>
     <p class="hero-sub">Explore the hottest movies and TV shows trending right now.</p>
   </header>
+
+
+  <section class="controls-section">
+    <div class="controls-inner">
+
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" class="search-input"
+          placeholder="Search movies or TV shows..." oninput="handleSearch()" />
+        <button class="search-clear hidden" id="search-clear" onclick="clearSearch()">✕</button>
+      </div>
+
+      <select id="sort-select" class="filter-select" onchange="applyFilters()">
+        <option value="default">Sort: Default</option>
+        <option value="rating-high">Rating: High to Low</option>
+        <option value="rating-low">Rating: Low to High</option>
+        <option value="title-az">Title: A → Z</option>
+        <option value="title-za">Title: Z → A</option>
+        <option value="year-new">Year: Newest First</option>
+        <option value="year-old">Year: Oldest First</option>
+      </select>
+
+      <select id="rating-filter" class="filter-select" onchange="applyFilters()">
+        <option value="0">Min Rating: All</option>
+        <option value="5">Rating ≥ 5</option>
+        <option value="6">Rating ≥ 6</option>
+        <option value="7">Rating ≥ 7</option>
+        <option value="8">Rating ≥ 8</option>
+      </select>
+
+      <button id="fav-toggle-btn" onclick="toggleFavoritesView()" class="fav-toggle-btn">
+        ❤️ Favorites <span id="fav-count" class="fav-count">0</span>
+      </button>
+
+    </div>
+  </section>
 
 
   <main class="cinescope-main">
@@ -50,6 +84,12 @@
     </div>
 
 
+    <div id="no-results" class="no-results hidden">
+      <p class="no-results-icon">🎬</p>
+      <p class="no-results-msg">No results found. Try a different search!</p>
+    </div>
+
+
     <div id="cards-grid" class="cards-grid hidden"></div>
 
 
@@ -61,11 +101,13 @@
 
 
   <footer class="cinescope-footer">
-    Built with passion by <span class="footer-name">charan29tej</span> · Powered by TMDB API
+    Built with ❤️ by <span class="footer-name">charan29tej</span> · Powered by TMDB API
   </footer>
+
 
   <script src="api.js"></script>
   <script src="ui.js"></script>
   <script src="cinescope_app.js"></script>
+
 </body>
 </html>
