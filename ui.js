@@ -1,7 +1,11 @@
+
+
+
 function showLoading() {
   document.getElementById('loading').classList.remove('hidden');
   document.getElementById('cards-grid').classList.add('hidden');
   document.getElementById('error').classList.add('hidden');
+  document.getElementById('no-results').classList.add('hidden');
   document.getElementById('load-more-btn').classList.add('hidden');
 }
 
@@ -19,15 +23,26 @@ function showError() {
 }
 
 
+function showNoResults() {
+  hideLoading();
+  document.getElementById('no-results').classList.remove('hidden');
+  document.getElementById('cards-grid').classList.add('hidden');
+  document.getElementById('load-more-btn').classList.add('hidden');
+}
+
+
+
 function createCard(item) {
   const card = document.createElement('div');
   card.className = 'cinescope-card';
 
-  const title = item.title || item.name || 'Unknown';
-  const rating = item.vote_average ? item.vote_average.toFixed(1) : 'N/A';
-  const year = (item.release_date || item.first_air_date || '').slice(0, 4);
-  const type = item.media_type === 'tv' ? 'TV' : 'Movie';
+  const title      = item.title || item.name || 'Unknown';
+  const rating     = item.vote_average ? item.vote_average.toFixed(1) : 'N/A';
+  const year       = (item.release_date || item.first_air_date || '').slice(0, 4);
+  const type       = item.media_type === 'tv' ? 'TV' : 'Movie';
   const badgeClass = item.media_type === 'tv' ? 'badge-tv' : 'badge-movie';
+  const isFav      = isFavorite(item.id);
+
 
   const posterHTML = item.poster_path
     ? `<img class="card-poster" src="${IMG_BASE}${item.poster_path}" alt="${title}" loading="lazy" />`
@@ -35,6 +50,11 @@ function createCard(item) {
 
   card.innerHTML = `
     ${posterHTML}
+    <button class="fav-btn ${isFav ? 'fav-active' : ''}"
+      onclick="toggleFavorite(${item.id}, this)"
+      title="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
+      ${isFav ? '❤️' : '🤍'}
+    </button>
     <div class="card-body">
       <div class="card-title" title="${title}">${title}</div>
       <div class="card-meta">
@@ -51,21 +71,25 @@ function createCard(item) {
 }
 
 
-function renderCards(items, append = false) {
+
+function renderCards(items) {
   const grid = document.getElementById('cards-grid');
 
-  if (!append) {
-    grid.innerHTML = '';
+
+  grid.innerHTML = '';
+
+
+  if (items.length === 0) {
+    showNoResults();
+    return;
   }
 
-  if (items.length === 0 && !append) {
-    grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:#6b7280; padding: 64px 0;">No results found.</p>`;
-  }
 
   items.forEach(item => {
     grid.appendChild(createCard(item));
   });
 
   hideLoading();
+  document.getElementById('no-results').classList.add('hidden');
   grid.classList.remove('hidden');
 }
