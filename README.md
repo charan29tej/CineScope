@@ -1,12 +1,12 @@
-# CineScope — Movie & TV Show Explorer
+# The CineScope — Movie & TV Show Explorer
 
-A modern, responsive web application for discovering and exploring movies and TV shows using the [TMDB (The Movie Database) API](https://www.themoviedb.org/documentation/api).
+A modern, responsive web application for discovering and exploring trending movies and TV shows using the [TMDB (The Movie Database) API](https://www.themoviedb.org/documentation/api).
 
 ---
 
 ## Project Purpose
 
-CineScope allows users to browse trending movies and TV shows, search for titles, filter by genre or rating, and save their favorites — all within a clean, dark-mode-friendly interface built with Tailwind CSS.
+CineScope allows users to browse trending movies and TV shows, search for titles, filter by genre or rating, sort results, and save their favorites — all within a clean, dark-mode-friendly interface.
 
 ---
 
@@ -15,33 +15,32 @@ CineScope allows users to browse trending movies and TV shows, search for titles
 **TMDB API** — [https://www.themoviedb.org/documentation/api](https://www.themoviedb.org/documentation/api)
 
 - Free to use with account registration
-- Provides endpoints for trending movies, TV shows, genres, search, and more
-- Returns rich data: posters, ratings, release dates, overviews, genres
+- Provides endpoints for trending movies, TV shows, search, and more
+- Returns rich data: posters, ratings, release dates, overviews
 
 **Key Endpoints:**
+
 | Endpoint | Purpose |
 |---|---|
 | `/trending/movie/week` | Fetch trending movies |
 | `/trending/tv/week` | Fetch trending TV shows |
-| `/search/multi` | Search across movies & shows |
-| `/genre/movie/list` | Get genre list for filtering |
 
 ---
 
-## Planned Features
+## Features Implemented
 
 ### Core Features
-- 🔍 **Search** — Search movies and TV shows by title using a live search bar (with debouncing)
-- 🎛️ **Filter** — Filter results by genre, media type (movie/TV), and minimum rating
-- 🔃 **Sort** — Sort results by popularity, release date, or rating (ascending/descending)
-- ❤️ **Favorites** — Like and save favorite titles; persisted using Local Storage
-- 🌙 **Dark / Light Mode** — Toggle between themes; preference saved in Local Storage
+- **Search** — Search movies and TV shows by title (with debouncing)
+- **Filter** — Filter results by minimum rating
+- **Sort** — Sort by rating, title (A-Z), or release year
+- **Favorites** — Like and save favorite titles
+- **Dark / Light Mode** — Toggle between themes
 
-### Bonus Features (Planned)
-- Debouncing on the search input to reduce unnecessary API calls
-- Pagination for browsing large result sets
-- Loading indicators while data is being fetched
-- Local Storage for saving favorites and theme preference
+### Bonus Features
+- ⏱️ **Debouncing** — Search input waits 400ms before filtering
+- 📄 **Pagination** — Load More button to fetch more results
+- 🔄 **Loading Indicators** — Spinner shown while data is fetching
+- 💾 **Local Storage** — Favorites and theme preference are saved
 
 ---
 
@@ -50,7 +49,7 @@ CineScope allows users to browse trending movies and TV shows, search for titles
 | Technology | Purpose |
 |---|---|
 | HTML5 | Page structure |
-| Tailwind CSS | Styling and responsive layout |
+| CSS3 | Styling and responsive layout |
 | Vanilla JavaScript (ES6+) | Logic, API calls, interactivity |
 | TMDB API | Movie and TV show data source |
 | Fetch API | HTTP requests to TMDB |
@@ -59,19 +58,30 @@ CineScope allows users to browse trending movies and TV shows, search for titles
 
 ---
 
-## Project Structure (Planned)
+## Project Structure
 
 ```
-cinescope/
-├── index.html          # Main HTML file
-├── style.css           # Custom styles (alongside Tailwind)
-├── js/
-│   ├── api.js          # All fetch/API logic
-│   ├── ui.js           # DOM rendering functions
-│   ├── filter.js       # Search, filter, sort using Array HOFs
-│   └── app.js          # Main entry point, event listeners
+CineScope/
+├── cinescope.html       # Main HTML file
+├── cinescope.css        # All styles
+├── api.js               # API configuration (keys, base URL)
+├── ui.js                # Card rendering and UI states
+├── cinescope_app.js     # Main app logic (search, filter, sort, favorites)
 └── README.md
 ```
+
+---
+
+## ⚙️ Array HOFs Used
+
+| Feature | HOF Used |
+|---|---|
+| Search | `Array.filter()` |
+| Filter by rating | `Array.filter()` |
+| Sort by rating/title/year | `Array.sort()` |
+| Check if favorite | `Array.find()` |
+| Remove from favorites | `Array.filter()` |
+| Add to favorites | `Array.find()` + spread |
 
 ---
 
@@ -79,42 +89,39 @@ cinescope/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/charan29tej/cinescope.git
-   cd cinescope
+   git clone https://github.com/charan29tej/CineScope.git
+   cd CineScope
    ```
 
-2. **Get a TMDB API Key**
-   - Sign up at [https://www.themoviedb.org/](https://www.themoviedb.org/)
-   - Go to Settings → API → Request an API key (free)
+2. **Open with Live Server**
+   - Open the folder in VS Code
+   - Right-click `cinescope.html` → Open with Live Server
 
-3. **Add your API Key**
-   - Open `js/api.js`
-   - Replace `YOUR_API_KEY` with your actual TMDB API key
+>  Did not used build tools or npm install required — plain HTML, CSS, and JS.
 
-4. **Run the project**
-   - Open `index.html` directly in a browser, **or**
-   - Use the Live Server extension in VS Code for a better dev experience
+---
 
-> No build tools or npm install required — this is a plain HTML/CSS/JS project.
+## Live Demo
+
+[View Live on GitHub Pages](https://charan29tej.github.io/CineScope/)
 
 ---
 
 ## Milestones
 
-| Milestone | Description | Deadline |
+| Milestone | Description | Status |
 |---|---|---|
-| ✅ Milestone 1 | Project setup, API selection, README | 23rd March |
-| 🔲 Milestone 2 | API integration, display data, responsiveness | 1st April |
-| 🔲 Milestone 3 | Search, filter, sort, favorites, dark mode | 8th April |
-| 🔲 Milestone 4 | Final cleanup, documentation, deployment | 10th April |
+| Milestone 1 | Project setup, API selection, README | Done |
+| Milestone 2 | API integration, display data, responsiveness | Done |
+| Milestone 3 | Search, filter, sort, favorites, dark mode | Done |
+| Milestone 4 | Documentation, deployment, final submission | Done |
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 - **GitHub:** [charan29tej](https://github.com/charan29tej)
 
 ---
 
-> _This project is submitted as part of a web development course assignment._
-
+> *This project is submitted as part of a web development course assignment.*
